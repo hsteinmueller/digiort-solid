@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/hsteinmueller/digiort-solid/precache-manifest.bd24d12d86bd8f473d9832b0bc1d164e.js"
+  "/digiort-solid/precache-manifest.d9065a2163b6de44fee0b24ce6494c1a.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/hsteinmueller/digiort-solid/index.html", {
+workbox.routing.registerNavigationRoute("/digiort-solid/index.html", {
   
   blacklist: [/^\/_/,/\/[^/]+\.[^/]+$/],
 });

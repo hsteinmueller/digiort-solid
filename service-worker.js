@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/hsteinmueller/digiort-solid/precache-manifest.e438b028b4f3e36a1e67b8f1905273e6.js"
+  "/hsteinmueller/digiort-solid/precache-manifest.bd24d12d86bd8f473d9832b0bc1d164e.js"
 );
 
 workbox.clientsClaim();

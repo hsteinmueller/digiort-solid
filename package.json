@@ -1,26 +1,26 @@
 {
-  "name": "react-app",
+  "name": "digiort-solid",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.9",
-    "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.7.1",
+    "@inrupt/solid-react-components": "^0.5.5",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.2",
+    "styled-components": "^5.2.1",
     "web-vitals": "^1.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "deploypod": "npm run build && node publish.js"
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {
@@ -33,6 +33,20 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "homepage": "https://harrystminrupt.inrupt.net/public/apps/website3",
+  "devDependencies": {
+    "gh-pages": "^3.1.0",
+    "solid-auth-cli": "^1.0.15",
+    "solid-file-client": "^1.2.3",
+    "solid-node-client": "^2.0.0"
+  },
+  "comment": {
+    "homepages": [
+      "gh-pages: https://hsteinmueller.github.io/digiort-solid",
+      "pod: https://harrystminrupt.inrupt.net/public/apps/website3",
+      "local: file:///E:/dev/work_projects/solid/react-app/build"
     ]
   }
 }

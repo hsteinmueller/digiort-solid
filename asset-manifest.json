@@ -1,22 +1,22 @@
 {
-  "main.css": "/digiort-solid/static/css/main.da4588a0.chunk.css",
-  "main.js": "/digiort-solid/static/js/main.b26403eb.chunk.js",
-  "main.js.map": "/digiort-solid/static/js/main.b26403eb.chunk.js.map",
-  "runtime~main.js": "/digiort-solid/static/js/runtime~main.6a6d16d8.js",
-  "runtime~main.js.map": "/digiort-solid/static/js/runtime~main.6a6d16d8.js.map",
-  "static/css/2.ff4c3902.chunk.css": "/digiort-solid/static/css/2.ff4c3902.chunk.css",
-  "static/js/2.07086fd5.chunk.js": "/digiort-solid/static/js/2.07086fd5.chunk.js",
-  "static/js/2.07086fd5.chunk.js.map": "/digiort-solid/static/js/2.07086fd5.chunk.js.map",
-  "index.html": "/digiort-solid/index.html",
-  "popup.html": "/digiort-solid/popup.html",
-  "precache-manifest.066f8785fbc8778cec7eb820387ab0ec.js": "/digiort-solid/precache-manifest.066f8785fbc8778cec7eb820387ab0ec.js",
-  "service-worker.js": "/digiort-solid/service-worker.js",
-  "solid-auth-client.bundle.js": "/digiort-solid/solid-auth-client.bundle.js",
-  "solid-auth-client.bundle.js.map": "/digiort-solid/solid-auth-client.bundle.js.map",
-  "solid-query-ldflex.bundle.js": "/digiort-solid/solid-query-ldflex.bundle.js",
-  "solid-query-ldflex.bundle.js.map": "/digiort-solid/solid-query-ldflex.bundle.js.map",
-  "static/css/2.ff4c3902.chunk.css.map": "/digiort-solid/static/css/2.ff4c3902.chunk.css.map",
-  "static/css/main.da4588a0.chunk.css.map": "/digiort-solid/static/css/main.da4588a0.chunk.css.map",
-  "static/js/2.07086fd5.chunk.js.LICENSE.txt": "/digiort-solid/static/js/2.07086fd5.chunk.js.LICENSE.txt",
-  "static/media/flag-icon.min.css": "/digiort-solid/static/media/zw.8b885465.svg"
+  "files": {
+    "main.css": "/digiort-solid/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/digiort-solid/static/js/main.37bf1653.chunk.js",
+    "main.js.map": "/digiort-solid/static/js/main.37bf1653.chunk.js.map",
+    "runtime-main.js": "/digiort-solid/static/js/runtime-main.4cd5f0aa.js",
+    "runtime-main.js.map": "/digiort-solid/static/js/runtime-main.4cd5f0aa.js.map",
+    "static/js/2.645acd1d.chunk.js": "/digiort-solid/static/js/2.645acd1d.chunk.js",
+    "static/js/2.645acd1d.chunk.js.map": "/digiort-solid/static/js/2.645acd1d.chunk.js.map",
+    "static/js/3.06591a89.chunk.js": "/digiort-solid/static/js/3.06591a89.chunk.js",
+    "static/js/3.06591a89.chunk.js.map": "/digiort-solid/static/js/3.06591a89.chunk.js.map",
+    "index.html": "/digiort-solid/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/digiort-solid/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.645acd1d.chunk.js.LICENSE.txt": "/digiort-solid/static/js/2.645acd1d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4cd5f0aa.js",
+    "static/js/2.645acd1d.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.37bf1653.chunk.js"
+  ]
 }

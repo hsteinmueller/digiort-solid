@@ -1,5 +1,6 @@
 import React from "react";
 import { ProviderLogin } from "@inrupt/solid-react-components";
+import { getProviders } from "../utils";
 // import { getLocation } from "../utils";
 
 const LoginComponent = () => {
@@ -16,7 +17,7 @@ const LoginComponent = () => {
       >
         Register for a solid identity
       </a>
-      <ProviderLogin callbackUri={callbackUri} />
+      <ProviderLogin callbackUri={callbackUri} providers={getProviders()} />
     </div>
   );
 };

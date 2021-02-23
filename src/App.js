@@ -1,12 +1,27 @@
 import React, { Fragment } from "react";
-import Routes from "./routes";
+// import Routes from "./routes";
 
-function App() {
-  return (
-    <Fragment>
-      <Routes />
-    </Fragment>
+import { withWebId } from "@inrupt/solid-react-components";
+import LoginComponent from "./components/login";
+import WelcomeComponent from "./components/welcome";
+
+// function App() {
+//   return (
+//     <Fragment>
+//       <Routes />
+//     </Fragment>
+//   );
+// }
+
+// export default App;
+
+function App(props) {
+  const { webId } = props;
+  return !webId ? (
+    <LoginComponent />
+  ) : (
+    <WelcomeComponent />
   );
 }
 
-export default App;
+export default withWebId(App);

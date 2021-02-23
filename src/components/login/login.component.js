@@ -1,11 +1,11 @@
 import React from "react";
 import { ProviderLogin } from "@inrupt/solid-react-components";
-import { getLocation } from "../utils";
+// import { getLocation } from "../utils";
 
 const LoginComponent = () => {
   // const callbackUri = `${window.location.href}/#/welcome#`;
-  const callBackUri = getLocation(window.location.href, "#/welcome#"); // hashtag at the end is important for redirect
-  console.log(callBackUri);
+  // const callbackUri = getLocation(window.location.href, "#/welcome#"); // hashtag at the end is important for redirect
+  const callbackUri = window.location.href;
   return (
     <div>
       <a
@@ -16,7 +16,7 @@ const LoginComponent = () => {
       >
         Register for a solid identity
       </a>
-      <ProviderLogin callbackUri={callBackUri} />
+      <ProviderLogin callbackUri={callbackUri} />
     </div>
   );
 };

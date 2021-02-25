@@ -2,14 +2,37 @@ import React, { Fragment } from "react";
 // import { Redirect } from "react-router-dom";
 // import { withWebId } from "@inrupt/solid-react-components";
 import NavBar from "../nav-bar";
+import FileUploader from "../fileuploader";
+import UserdataForm from "../userdataform";
+import { createDocumentWithTurtle } from "../utils/ldflex";
+import { getAppStorage } from "../utils/storage";
 
 const WelcomeComponent = (props) => {
   const { webId } = props;
 
+  const handleFileContent = async (filename, fileContent) => {
+    // const data = await fetch("observation-example-vitals-panel.ttl");
+    // const ttl = await data.text();
+    const ttl = fileContent;
+
+    // await storageHelper.createInitialFiles(webId);
+    const appUrl = await getAppStorage(webId);
+    const filePath = `${appUrl + filename}`;
+    const res = await createDocumentWithTurtle(filePath, ttl);
+    console.log(res);
+    // can also use ldflex-here
+  };
+
+  const uploadFile = async (values) => {
+    console.log(values);
+    console.log("TODO: upload file");
+  };
+
   return (
     <Fragment>
       <NavBar {...webId} />
-      <div>hello</div>
+      {/* <FileUploader onLoad={handleFileContent} /> */}
+      <UserdataForm onSubmit={uploadFile} />
     </Fragment>
   );
 };
@@ -42,4 +65,3 @@ const WelcomeComponent = (props) => {
 
 // export default withAuthorization(WelcomeComponent);
 export default WelcomeComponent;
-

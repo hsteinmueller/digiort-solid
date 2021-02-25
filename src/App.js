@@ -20,7 +20,7 @@ function App(props) {
   return !webId ? (
     <LoginComponent />
   ) : (
-    <WelcomeComponent />
+    <WelcomeComponent webId={webId} />
   );
 }
 

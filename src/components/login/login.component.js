@@ -1,6 +1,6 @@
 import React from "react";
 import { ProviderLogin } from "@inrupt/solid-react-components";
-import { getProviders } from "../utils";
+import { getProviders } from "../utils/providers";
 // import { getLocation } from "../utils";
 
 const LoginComponent = () => {

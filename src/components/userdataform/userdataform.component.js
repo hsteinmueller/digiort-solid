@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "bulma";
 
 export const UserdataForm = ({ onSubmit }) => {
   // https://dev.to/deboragaleano/how-to-handle-multiple-inputs-in-react-55el
@@ -26,47 +27,67 @@ export const UserdataForm = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Heartrate:
-        <input
-          name="heartrate"
-          type="number"
-          value={values.heartrate}
-          onChange={handleChange}
-        />
-      </label>
-      <br />
-      <label>
-        Bloodpressure:
-        <input
-          name="bloodpressure"
-          type="number"
-          value={values.bloodpressure}
-          onChange={handleChange}
-        />
-      </label>
-      <br />
-      <label>
-        Bodytemperature:
-        <input
-          name="bodytemp"
-          type="number"
-          value={values.bodytemp}
-          onChange={handleChange}
-        />
-      </label>
-      <br />
-      <label>
-        Respiratory-Rate:
-        <input
-          name="respiratoryrate"
-          type="number"
-          value={values.respiratoryrate}
-          onChange={handleChange}
-        />
-      </label>
-      <input type="submit" value="Submit" />
+    <form
+      className="box"
+      onSubmit={handleSubmit}
+      style={{ width: "15rem" }}
+    >
+      <div className="field">
+        <label className="label">
+          Heartrate
+          <input
+            className="input"
+            name="heartrate"
+            type="number"
+            value={values.heartrate}
+            onChange={handleChange}
+          />
+        </label>
+      </div>
+      <div className="field">
+        <label className="label">
+          Bloodpressure
+          <input
+            className="input"
+            name="bloodpressure"
+            type="number"
+            value={values.bloodpressure}
+            onChange={handleChange}
+          />
+        </label>
+      </div>
+      <div className="field">
+        <label className="label">
+          Bodytemperature
+          <input
+            className="input"
+            name="bodytemp"
+            type="number"
+            value={values.bodytemp}
+            onChange={handleChange}
+          />
+        </label>
+      </div>
+      <div className="field">
+        <label className="label">
+          Respiratory-Rate
+          <input
+            className="input"
+            name="respiratoryrate"
+            type="number"
+            value={values.respiratoryrate}
+            onChange={handleChange}
+          />
+        </label>
+      </div>
+      <div className="control">
+        <button className="button is-primary">Submit</button>
+        {/* <input type="submit" value="Submit" /> */}
+      </div>
+      <p>
+        This will upload a <strong>data.ttl</strong> file to your pod under{" "}
+        <strong>/public/apps/digiort!</strong>
+      </p>
     </form>
   );
 };

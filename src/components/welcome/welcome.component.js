@@ -30,9 +30,11 @@ const WelcomeComponent = (props) => {
 
   return (
     <Fragment>
-      <NavBar {...webId} />
+      <NavBar webId={webId} />
       {/* <FileUploader onLoad={handleFileContent} /> */}
-      <UserdataForm onSubmit={uploadFile} />
+      <div className="container">
+        <UserdataForm onSubmit={uploadFile} />
+      </div>
     </Fragment>
   );
 };

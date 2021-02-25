@@ -1,22 +1,18 @@
 {
   "files": {
-    "main.css": "/digiort-solid/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/digiort-solid/static/js/main.e24f2bcf.chunk.js",
-    "main.js.map": "/digiort-solid/static/js/main.e24f2bcf.chunk.js.map",
-    "runtime-main.js": "/digiort-solid/static/js/runtime-main.4cd5f0aa.js",
-    "runtime-main.js.map": "/digiort-solid/static/js/runtime-main.4cd5f0aa.js.map",
-    "static/js/2.645acd1d.chunk.js": "/digiort-solid/static/js/2.645acd1d.chunk.js",
-    "static/js/2.645acd1d.chunk.js.map": "/digiort-solid/static/js/2.645acd1d.chunk.js.map",
-    "static/js/3.06591a89.chunk.js": "/digiort-solid/static/js/3.06591a89.chunk.js",
-    "static/js/3.06591a89.chunk.js.map": "/digiort-solid/static/js/3.06591a89.chunk.js.map",
-    "index.html": "/digiort-solid/index.html",
-    "static/css/main.6dea0f05.chunk.css.map": "/digiort-solid/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.645acd1d.chunk.js.LICENSE.txt": "/digiort-solid/static/js/2.645acd1d.chunk.js.LICENSE.txt"
+    "main.css": "./static/css/main.1359096b.chunk.css",
+    "main.js": "./static/js/main.a3020e9f.chunk.js",
+    "runtime-main.js": "./static/js/runtime-main.01440f37.js",
+    "static/css/2.83a61a94.chunk.css": "./static/css/2.83a61a94.chunk.css",
+    "static/js/2.a990623b.chunk.js": "./static/js/2.a990623b.chunk.js",
+    "index.html": "./index.html",
+    "static/js/2.a990623b.chunk.js.LICENSE.txt": "./static/js/2.a990623b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.4cd5f0aa.js",
-    "static/js/2.645acd1d.chunk.js",
-    "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.e24f2bcf.chunk.js"
+    "static/js/runtime-main.01440f37.js",
+    "static/css/2.83a61a94.chunk.css",
+    "static/js/2.a990623b.chunk.js",
+    "static/css/main.1359096b.chunk.css",
+    "static/js/main.a3020e9f.chunk.js"
   ]
 }

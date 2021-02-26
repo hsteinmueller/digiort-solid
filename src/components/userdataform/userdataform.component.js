@@ -31,7 +31,7 @@ export const UserdataForm = ({ onSubmit }) => {
       <form className="box" onSubmit={handleSubmit} style={{ width: "15rem" }}>
         <div className="field">
           <label className="label">
-            Heartrate
+            Heartrate [bpm]
             <input
               className="input"
               name="heartrate"

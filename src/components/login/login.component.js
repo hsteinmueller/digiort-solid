@@ -1,6 +1,6 @@
 import React from "react";
 import { ProviderLogin } from "@inrupt/solid-react-components";
-import { getProviders } from "../utils/providers";
+import { getProviders } from "../../utils/providers";
 import "bulma";
 // import { getLocation } from "../utils";
 

@@ -4,28 +4,25 @@ import React, { Fragment } from "react";
 import NavBar from "../nav-bar";
 import FileUploader from "../fileuploader";
 import UserdataForm from "../userdataform";
-import { createDocumentWithTurtle } from "../utils/ldflex";
-import { getAppStorage } from "../utils/storage";
+import { createDocumentWithTurtle } from "../../utils/ldflex";
+import { getAppStorage } from "../../utils/storage";
 
 const WelcomeComponent = (props) => {
   const { webId } = props;
 
-  const handleFileContent = async (filename, fileContent) => {
-    // const data = await fetch("observation-example-vitals-panel.ttl");
-    // const ttl = await data.text();
-    const ttl = fileContent;
+  const createFile = async (values) => {
+    console.log(values);
+    console.log("TODO: create file");
+    const fileContent = "";
 
-    // await storageHelper.createInitialFiles(webId);
-    const appUrl = await getAppStorage(webId);
-    const filePath = `${appUrl + filename}`;
-    const res = await createDocumentWithTurtle(filePath, ttl);
-    console.log(res);
-    // can also use ldflex-here
+    await uploadFile(fileContent);
   };
 
-  const uploadFile = async (values) => {
-    console.log(values);
-    console.log("TODO: upload file");
+  const uploadFile = async (fileContent) => {
+    const appUrl = await getAppStorage(webId);
+    const filePath = `${appUrl + "data.ttl"}`;
+    const res = await createDocumentWithTurtle(filePath, fileContent);
+    console.log(res);
   };
 
   return (
@@ -33,7 +30,7 @@ const WelcomeComponent = (props) => {
       <NavBar webId={webId} />
       {/* <FileUploader onLoad={handleFileContent} /> */}
       <div className="container">
-        <UserdataForm onSubmit={uploadFile} />
+        <UserdataForm onSubmit={createFile} />
       </div>
     </Fragment>
   );

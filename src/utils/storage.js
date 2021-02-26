@@ -1,7 +1,5 @@
 import data from "@solid/query-ldflex";
-import { AccessControlList } from "@inrupt/solid-react-components";
 import { resourceExists, createDoc, createDocument } from "./ldflex";
-import { checkSpecificAppPermission } from "./permissions";
 
 const appPath = process.env.REACT_APP_STORAGE_PATH;
 
@@ -50,15 +48,6 @@ export const getAppStorage = async (webId) => {
  */
 export const createInitialFiles = async (webId) => {
   try {
-    // First, check if we have WRITE permission for the app
-    const hasWritePermission = await checkSpecificAppPermission(
-      webId,
-      AccessControlList.MODES.WRITE
-    );
-
-    // If we do not have Write permission, there's nothing we can do here
-    if (!hasWritePermission) return;
-
     // Get the default app storage location from the user's pod and append our path to it
     const appUrl = await getAppStorage(webId);
 

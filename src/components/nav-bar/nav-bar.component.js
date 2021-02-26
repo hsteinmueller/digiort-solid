@@ -1,12 +1,10 @@
 import React, { memo, useState, useEffect } from "react";
-import auth from "solid-auth-client";
+import { LogoutButton } from "@inrupt/solid-ui-react";
 import data from "@solid/query-ldflex";
-
 import "bulma";
 
 const NavBar = memo((props) => {
   const { webId } = props;
-
   const [name, setName] = useState(webId);
 
   useEffect(() => {
@@ -21,14 +19,8 @@ const NavBar = memo((props) => {
     })();
   }, [webId]);
 
-  const logOut = async () => {
-    try {
-      await auth.logout();
-      // Remove localStorage
-      localStorage.removeItem("solid-auth-client");
-    } catch (error) {
-      console.log("error logging out");
-    }
+  const refresh = () => {
+    window.location.reload();
   };
 
   return (
@@ -39,9 +31,9 @@ const NavBar = memo((props) => {
         </div>
         <div className="navbar-end">
           <div className="navbar-item">
-            <button className="button is-primary" onClick={logOut}>
-              <strong>Logout</strong>
-            </button>
+            <LogoutButton onLogout={refresh}>
+              <button className="button is-primary">Log out</button>
+            </LogoutButton>
           </div>
         </div>
       </div>

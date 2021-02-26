@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@inrupt/solid-react-components": "^0.5.5",
+    "@inrupt/solid-ui-react": "^2.1.1",
+    "@solid/query-ldflex": "^2.11.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.2",
-    "styled-components": "^5.2.1",
     "web-vitals": "^1.1.0"
   },
   "scripts": {

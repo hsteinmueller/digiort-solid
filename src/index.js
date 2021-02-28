@@ -1,16 +1,16 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import { StrictMode } from "react";
+import { render } from "react-dom";
 import "./index.css";
 import App from "./App";
 import { SessionProvider } from "@inrupt/solid-ui-react";
 //import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
-  <React.StrictMode>
+render(
+  <StrictMode>
     <SessionProvider sessionId="react-sdk-example-project">
       <App />
     </SessionProvider>
-  </React.StrictMode>,
+  </StrictMode>,
   document.getElementById("root")
 );
 

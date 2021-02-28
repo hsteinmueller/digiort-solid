@@ -1,4 +1,3 @@
-import React from "react";
 import { useSession } from "@inrupt/solid-ui-react";
 import LoginComponent from "./components/login";
 import WelcomeComponent from "./components/welcome";

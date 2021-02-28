@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { LoginButton } from "@inrupt/solid-ui-react";
 import { getProviders } from "../../utils/providers";
 import "bulma";

@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect } from "react";
+import { memo, useState, useEffect } from "react";
 import { LogoutButton } from "@inrupt/solid-ui-react";
 import data from "@solid/query-ldflex";
 import "bulma";

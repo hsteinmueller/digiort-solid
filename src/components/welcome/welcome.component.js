@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 import { useSession } from "@inrupt/solid-ui-react";
 import NavBar from "../nav-bar";
 import UserdataForm from "../userdataform";

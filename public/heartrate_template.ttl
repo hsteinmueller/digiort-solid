@@ -1,3 +1,5 @@
+# - source: https://www.hl7.org/fhir/observation-example-heart-rate.ttl.html
+
 @prefix fhir: <http://hl7.org/fhir/> .
 @prefix loinc: <http://loinc.org/rdf#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -8,38 +10,38 @@
 
 <http://hl7.org/fhir/Observation/heart-rate> a fhir:Observation;
   fhir:nodeRole fhir:treeRoot;
-  fhir:Resource.id [ fhir:value "heart-rate"^^xsd:string];
-  fhir:Resource.meta [
-     fhir:Meta.profile [
+  <http://hl7.org/fhir/Resource.id> [ fhir:value "heart-rate"^^xsd:string];
+  <http://hl7.org/fhir/Resource.meta> [
+     <http://hl7.org/fhir/Meta.profile> [
        fhir:value "http://hl7.org/fhir/StructureDefinition/vitalsigns";
        fhir:index 0;
        fhir:link <http://hl7.org/fhir/StructureDefinition/vitalsigns>
      ]
   ];
-  fhir:Observation.status [ fhir:value "final"];
-  fhir:Observation.category [
+  <http://hl7.org/fhir/Observation.status> [ fhir:value "final"];
+  <http://hl7.org/fhir/Observation.category> [
      fhir:index 0;
-     fhir:CodeableConcept.coding [
+     <http://hl7.org/fhir/CodeableConcept.coding> [
        fhir:index 0;
-       fhir:Coding.system [ fhir:value "http://terminology.hl7.org/CodeSystem/observation-category" ];
-       fhir:Coding.code [ fhir:value "vital-signs" ];
-       fhir:Coding.display [ fhir:value "Vital Signs" ]
+       <http://hl7.org/fhir/Coding.system> [ fhir:value "http://terminology.hl7.org/CodeSystem/observation-category" ];
+       <http://hl7.org/fhir/Coding.code> [ fhir:value "vital-signs" ];
+       <http://hl7.org/fhir/Coding.display> [ fhir:value "Vital Signs" ]
      ];
-     fhir:CodeableConcept.text [ fhir:value "Vital Signs" ]
+     <http://hl7.org/fhir/CodeableConcept.text> [ fhir:value "Vital Signs" ]
   ];
-  fhir:Observation.code [
-     fhir:CodeableConcept.coding [
+  <http://hl7.org/fhir/Observation.code> [
+     <http://hl7.org/fhir/CodeableConcept.coding> [
        fhir:index 0;
        a loinc:8867-4;
-       fhir:Coding.system [ fhir:value "http://loinc.org" ];
-       fhir:Coding.code [ fhir:value "8867-4" ];
-       fhir:Coding.display [ fhir:value "Heart rate" ]
+       <http://hl7.org/fhir/Coding.system> [ fhir:value "http://loinc.org" ];
+       <http://hl7.org/fhir/Coding.code> [ fhir:value "8867-4" ];
+       <http://hl7.org/fhir/Coding.display> [ fhir:value "Heart rate" ]
      ];
-     fhir:CodeableConcept.text [ fhir:value "Heart rate" ]
+     <http://hl7.org/fhir/CodeableConcept.text> [ fhir:value "Heart rate" ]
   ] .
 
 # - ontology header ------------------------------------------------------------
 
 <http://hl7.org/fhir/Observation/heart-rate.ttl> a owl:Ontology;
-  owl:imports fhir:fhir.ttl;
+  owl:imports <http://hl7.org/fhir/fhir.ttl> ;
   owl:versionIRI <http://build.fhir.org/Observation/heart-rate.ttl> .

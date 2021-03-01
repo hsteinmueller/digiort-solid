@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { useSession } from "@inrupt/solid-ui-react";
 import NavBar from "../nav-bar";
 import UserdataForm from "../userdataform";
-import { createDocumentWithTurtle } from "../../utils/ldflex";
+import { createDocumentWithTurtle } from "../../utils/fileController";
 import { getAppStorage } from "../../utils/storage";
 
 // import { Parser, Store } from "n3";
@@ -16,7 +16,7 @@ const WelcomeComponent = () => {
 
   const uploadFile = async (values) => {
     const appUrl = await getAppStorage(webId);
-    const filePath = `${appUrl + "data.ttl"}`;
+    const filePath = `${appUrl + "heartrate.ttl"}`;
 
     const template_res = await fetch("heartrate_template.ttl", {
       // const template_res = await fetch("data.ttl", {

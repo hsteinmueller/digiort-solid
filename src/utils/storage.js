@@ -1,5 +1,5 @@
 import data from "@solid/query-ldflex";
-import { resourceExists, createDoc, createDocument } from "./ldflex";
+import { resourceExists, createDoc, createDocument } from "./fileController";
 
 const appPath = process.env.REACT_APP_STORAGE_PATH;
 

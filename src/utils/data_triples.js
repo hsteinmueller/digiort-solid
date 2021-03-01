@@ -9,24 +9,24 @@ export const getHeartrateRdfString = (
 # - data -------------------------------------------------------------------
 
 <http://hl7.org/fhir/Observation/heart-rate>
-  fhir:Observation.valueQuantity [
-  fhir:Quantity.value [ fhir:value "${heartrate}"^^xsd:decimal ];
-  fhir:Quantity.unit [ fhir:value "beats/minute" ];
-  fhir:Quantity.system [ fhir:value "http://unitsofmeasure.org" ];
-  fhir:Quantity.code [ fhir:value "/min" ]
+  <http://hl7.org/fhir/Observation.valueQuantity> [
+    <http://hl7.org/fhir/Quantity.value> [ fhir:value "${heartrate}"^^xsd:decimal ];
+    <http://hl7.org/fhir/Quantity.unit> [ fhir:value "beats/minute" ];
+    <http://hl7.org/fhir/Quantity.system> [ fhir:value "http://unitsofmeasure.org" ];
+    <http://hl7.org/fhir/Quantity.code> [ fhir:value "/min" ]
 ];
 
-fhir:Observation.effectiveDateTime [ fhir:value "${new Date().toISOString()}"^^xsd:datetime];
+<http://hl7.org/fhir/Observation.effectiveDateTime> [ fhir:value "${new Date().toISOString()}"^^xsd:datetime];
 
-fhir:Observation.subject [
+<http://hl7.org/fhir/Observation.subject> [
   fhir:link <http://hl7.org/fhir/${patient}>;
-  fhir:Reference.reference [ fhir:value "${patient}" ]
+  <http://hl7.org/fhir/Reference.reference> [ fhir:value "${patient}" ]
 ];
 
-fhir:Observation.performer [
+<http://hl7.org/fhir/Observation.performer> [
   fhir:index 0;
   fhir:link <http://hl7.org/fhir/${doctor}>;
-  fhir:Reference.reference [ fhir:value "${doctor}" ]
+  <http://hl7.org/fhir/Reference.reference> [ fhir:value "${doctor}" ]
 ] .
     `;
 };

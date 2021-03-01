@@ -82,8 +82,8 @@ export const UserdataForm = ({ onSubmit }) => {
           {/* <input type="submit" value="Submit" /> */}
         </div>
         <p>
-          This will upload a <strong>data.ttl</strong> file to your pod under{" "}
-          <strong>/public/apps/digiort!</strong>
+          This will upload <strong>.ttl</strong>-files to your pod in{" "}
+          <strong>/private/apps/digiort!</strong>
         </p>
       </form>
     </div>

@@ -2,8 +2,8 @@ import { Triple, DataFactory as DF } from "n3";
 
 export const getHeartrateRdfString = (
   heartrate,
-  patient = "Patient/example",
-  doctor = "Practitioner/doctor"
+  patientId = "exampleId",
+  doctorId = "doctorId"
 ) => {
   return `
 # - data -------------------------------------------------------------------
@@ -19,15 +19,56 @@ export const getHeartrateRdfString = (
 <http://hl7.org/fhir/Observation.effectiveDateTime> [ fhir:value "${new Date().toISOString()}"^^xsd:datetime];
 
 <http://hl7.org/fhir/Observation.subject> [
-  fhir:link <http://hl7.org/fhir/${patient}>;
-  <http://hl7.org/fhir/Reference.reference> [ fhir:value "${patient}" ]
+  fhir:link <http://hl7.org/fhir/Patient/${patientId}>;
+  <http://hl7.org/fhir/Reference.reference> [ fhir:value "Patient/${patientId}" ];
+  <http://hl7.org/fhir/Reference.display> [ fhir:value "PatientName" ]
 ];
 
 <http://hl7.org/fhir/Observation.performer> [
   fhir:index 0;
-  fhir:link <http://hl7.org/fhir/${doctor}>;
-  <http://hl7.org/fhir/Reference.reference> [ fhir:value "${doctor}" ]
+  fhir:link <http://hl7.org/fhir/Practitioner/${doctorId}>;
+  <http://hl7.org/fhir/Reference.reference> [ fhir:value "Practitioner/${doctorId}" ]
 ] .
+
+<http://hl7.org/fhir/Patient/${patientId}> a fhir:Patient .
+
+<http://hl7.org/fhir/Practitioner/${doctorId}> a fhir:Practitioner .
+    `;
+};
+
+export const getTemperatureRdfString = (
+  temp,
+  patientId = "exampleId",
+  doctorId = "doctorId"
+) => {
+  return `
+# - data -------------------------------------------------------------------
+
+<http://hl7.org/fhir/Observation/temperature>
+  <http://hl7.org/fhir/Observation.valueQuantity> [
+    <http://hl7.org/fhir/Quantity.value> [ fhir:value "${temp}"^^xsd:decimal ];
+    <http://hl7.org/fhir/Quantity.unit> [ fhir:value "degrees C" ];
+    <http://hl7.org/fhir/Quantity.system> [ fhir:value "http://unitsofmeasure.org" ];
+    <http://hl7.org/fhir/Quantity.code> [ fhir:value "Cel" ]
+];
+
+<http://hl7.org/fhir/Observation.issued> [ fhir:value "${new Date().toISOString()}"^^xsd:datetime];
+
+<http://hl7.org/fhir/Observation.subject> [
+  fhir:link <http://hl7.org/fhir/Patient/${patientId}>;
+  <http://hl7.org/fhir/Reference.reference> [ fhir:value "Patient/${patientId}" ];
+  <http://hl7.org/fhir/Reference.display> [ fhir:value "PatientName" ]
+];
+
+<http://hl7.org/fhir/Observation.performer> [
+  fhir:index 0;
+  fhir:link <http://hl7.org/fhir/Practitioner/${doctorId}>;
+  <http://hl7.org/fhir/Reference.reference> [ fhir:value "Practitioner/${doctorId}" ]
+] .
+
+<http://hl7.org/fhir/Patient/${patientId}> a fhir:Patient .
+
+<http://hl7.org/fhir/Practitioner/${doctorId}> a fhir:Practitioner .
     `;
 };
 

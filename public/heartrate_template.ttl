@@ -18,6 +18,10 @@
        fhir:link <http://hl7.org/fhir/StructureDefinition/vitalsigns>
      ]
   ];
+  <http://hl7.org/fhir/DomainResource.text> [
+     <http://hl7.org/fhir/Narrative.status> [ fhir:value "generated" ];
+     <http://hl7.org/fhir/Narrative.div> "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative with Details</b></p><p><b>id</b>: heart-rate</p><p><b>meta</b>: </p><p><b>status</b>: final</p><p><b>category</b>: Vital Signs <span>(Details : {http://terminology.hl7.org/CodeSystem/observation-category code 'vital-signs' = 'Vital Signs', given as 'Vital Signs'})</span></p><p><b>code</b>: Heart rate <span>(Details : {LOINC code '8867-4' = 'Heart rate', given as 'Heart rate'})</span></p><p><b>subject</b>: <a>Patient/example</a></p><p><b>effective</b>: 02/07/1999</p><p><b>value</b>: 44 beats/minute<span> (Details: UCUM code /min = '/min')</span></p></div>"
+  ];
   <http://hl7.org/fhir/Observation.status> [ fhir:value "final"];
   <http://hl7.org/fhir/Observation.category> [
      fhir:index 0;
@@ -43,5 +47,5 @@
 # - ontology header ------------------------------------------------------------
 
 <http://hl7.org/fhir/Observation/heart-rate.ttl> a owl:Ontology;
-  owl:imports <http://hl7.org/fhir/fhir.ttl> ;
+  owl:imports <http://hl7.org/fhir/fhir.ttl>;
   owl:versionIRI <http://build.fhir.org/Observation/heart-rate.ttl> .

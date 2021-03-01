@@ -1,14 +1,13 @@
 import { useState } from "react";
 import "bulma";
+import { BODY_TEMP, HEARTRATE } from "../../constants/vitals";
 
 export const UserdataForm = ({ onSubmit }) => {
   // https://dev.to/deboragaleano/how-to-handle-multiple-inputs-in-react-55el
   // https://www.telerik.com/blogs/how-to-build-custom-forms-react-hooks
   const initialValues = {
-    heartrate: 0,
-    bloodpressure: 0,
-    bodytemp: 0,
-    respiratoryrate: 0,
+    [HEARTRATE]: 0,
+    [BODY_TEMP]: 0,
   };
 
   const [values, setvalues] = useState(initialValues);
@@ -34,21 +33,9 @@ export const UserdataForm = ({ onSubmit }) => {
             Heartrate [bpm]
             <input
               className="input"
-              name="heartrate"
+              name={HEARTRATE}
               type="number"
               value={values.heartrate}
-              onChange={handleChange}
-            />
-          </label>
-        </div>
-        <div className="field">
-          <label className="label">
-            Bloodpressure
-            <input
-              className="input"
-              name="bloodpressure"
-              type="number"
-              value={values.bloodpressure}
               onChange={handleChange}
             />
           </label>
@@ -58,21 +45,9 @@ export const UserdataForm = ({ onSubmit }) => {
             Bodytemperature
             <input
               className="input"
-              name="bodytemp"
+              name={BODY_TEMP}
               type="number"
-              value={values.bodytemp}
-              onChange={handleChange}
-            />
-          </label>
-        </div>
-        <div className="field">
-          <label className="label">
-            Respiratory-Rate
-            <input
-              className="input"
-              name="respiratoryrate"
-              type="number"
-              value={values.respiratoryrate}
+              value={values.temperature}
               onChange={handleChange}
             />
           </label>

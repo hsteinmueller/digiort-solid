@@ -8,26 +8,47 @@ import { getAppStorage } from "../../utils/storage";
 // import { Parser, Store } from "n3";
 // import rdfParser from "rdf-parse";
 // import { Fetcher, graph, parse } from "rdflib";
-import { getHeartrateRdfString } from "../../utils/data_triples";
+import {
+  getHeartrateRdfString,
+  getTemperatureRdfString,
+} from "../../utils/data_triples";
+import { BODY_TEMP, HEARTRATE } from "../../constants/vitals";
 
 const WelcomeComponent = () => {
   const { session } = useSession();
   const { webId } = session.info;
 
-  const uploadFile = async (values) => {
+  const uploadFiles = async (values) => {
     const appUrl = await getAppStorage(webId);
-    const filePath = `${appUrl + "heartrate.ttl"}`;
 
-    const template_res = await fetch("heartrate_template.ttl", {
-      // const template_res = await fetch("data.ttl", {
-      // headers: {
-      // "Content-Type": "application/rdf+xml",
-      // },
-    });
-    const template = await template_res.text();
-    const str = getHeartrateRdfString(values.heartrate);
-    const fileContent = template + str;
-    console.log(fileContent);
+    for (const [key, value] of Object.entries(values)) {
+      if (value === 0) continue;
+      const filePath = `${appUrl + key}.ttl`;
+      var template = "";
+      var data = "";
+      switch (key) {
+        case HEARTRATE:
+          template = await fetch("heartrate_template.ttl", {});
+          data = getHeartrateRdfString(value);
+          break;
+        case BODY_TEMP:
+          template = await fetch("temperature_template.ttl", {});
+          data = getTemperatureRdfString(value);
+          break;
+        default:
+        console.log("nothing changed");
+      }
+      template = await template.text();
+      const fileContent = template + data;
+      console.log(fileContent);
+
+      const res = await createDocumentWithTurtle(
+        session.fetch,
+        filePath,
+        fileContent
+      );
+      console.log(res);
+    }
 
     // this works: N3
     // const store = new Store();
@@ -54,20 +75,13 @@ const WelcomeComponent = () => {
     // const store = graph();
     // parse(template, store, filePath);
     // console.log(store);
-
-    const res = await createDocumentWithTurtle(
-      session.fetch,
-      filePath,
-      fileContent
-    );
-    console.log(res);
   };
 
   return (
     <Fragment>
       <NavBar webId={webId} />
       <div className="container">
-        <UserdataForm onSubmit={uploadFile} />
+        <UserdataForm onSubmit={uploadFiles} />
       </div>
     </Fragment>
   );

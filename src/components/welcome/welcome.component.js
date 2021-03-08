@@ -4,15 +4,15 @@ import NavBar from "../nav-bar";
 import UserdataForm from "../userdataform";
 import { createDocumentWithTurtle } from "../../utils/fileController";
 import { getAppStorage } from "../../utils/storage";
-
-// import { Parser, Store } from "n3";
-// import rdfParser from "rdf-parse";
-// import { Fetcher, graph, parse } from "rdflib";
 import {
   getHeartrateRdfString,
   getTemperatureRdfString,
 } from "../../utils/data_triples";
 import { BODY_TEMP, HEARTRATE } from "../../constants/vitals";
+
+// import { Parser, Store } from "n3";
+// import rdfParser from "rdf-parse";
+// import { Fetcher, graph, parse } from "rdflib";
 
 const WelcomeComponent = () => {
   const { session } = useSession();
@@ -36,7 +36,7 @@ const WelcomeComponent = () => {
           data = getTemperatureRdfString(value);
           break;
         default:
-        console.log("nothing changed");
+          console.log("nothing changed");
       }
       template = await template.text();
       const fileContent = template + data;

@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Getting Started
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
+and uses some components/utilities from [Generator Solid React](https://github.com/inrupt/generator-solid-react).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Libraries used:
+
+- [solid-ui-react](https://github.com/inrupt/solid-ui-react):
+  - React components: LoginButton, LogoutButton
+  - useSession-Hook for login state and webId
+- [query-ldflex](https://github.com/solid/query-ldflex):
+  - access data in Solid pods through LDflex expressions
+- [solid-auth-cli](https://github.com/jeff-zucker/solid-auth-cli),
+[solid-file-client](https://github.com/jeff-zucker/solid-file-client),
+[solid-node-client](https://github.com/solid/solid-node-client): see `deployment`
+- [bulma](https://github.com/jgthms/bulma): styling and css framework
 
 ## Available Scripts
-
-In the project directory, you can run:
 
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `npm run deploy`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This runs `publish.js`.
 
-### `npm run eject`
+This script uses [solid-file-client](https://github.com/jeff-zucker/solid-file-client) to copy
+the `build` folder to a specified folder in a pod to deploy the webapp.
+It uses [solid-auth-cli](https://github.com/jeff-zucker/solid-auth-cli) for authentication.
+For this the environment variables `pod_username` and `pod_password` need to be set.
+This also automatically runs `build` before deployment.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+`publish2.js` uses [solid-node-client](https://github.com/solid/solid-node-client), but doesn't work for now. See comment in file.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Component-Architecture
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- `App`:
+  - entry component
+  - uses `useSession` to check if the user is logged in
+  - depending on that renders `WelcomeComponent` or `LoginComponent`
+- `LoginComponent`:
+  - shows registration link, provider selection and LoginButton
+  - after login redirects to app entry, which then shows `WelcomeComponent`
+- `WelcomeComponent`:
+  - 'main' component with `NavBar`
+  - show data form and uploads file to pod on submit
+- `NavBar`:
+  -  Header with {username}
+  -  Logout button: removes session from storage and refreshes page
+-  `UserdataFrom`:
+   -  render form for data input
+   -  takes `onSubmit` function
+-  `Fileuploader`:
+   -  **not used**: allows selection of file from local filesystem
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## other info
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`GENERATE_SOURCEMAP=false` in `.env`  prevents the creation of sourcemaps and reduces `build` size for upload/hosting in pod.

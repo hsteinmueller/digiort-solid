@@ -28,7 +28,6 @@ const LoginComponent = () => {
             linkButton: "button is-text",
           }}
         /> */}
-
         <div className="block control has-icons-left">
           <div className="select">
             <select
@@ -52,7 +51,6 @@ const LoginComponent = () => {
           <LoginButton
             oidcIssuer={selectedProvider.value}
             redirectUrl={callbackUri}
-            authOptions={{}}
           >
             <button className="button is-primary">Log in</button>
           </LoginButton>

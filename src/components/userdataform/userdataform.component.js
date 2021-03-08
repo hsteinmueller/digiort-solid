@@ -35,7 +35,7 @@ export const UserdataForm = ({ onSubmit }) => {
               className="input"
               name={HEARTRATE}
               type="number"
-              value={values.heartrate}
+              value={values[HEARTRATE]}
               onChange={handleChange}
             />
           </label>
@@ -47,14 +47,13 @@ export const UserdataForm = ({ onSubmit }) => {
               className="input"
               name={BODY_TEMP}
               type="number"
-              value={values.temperature}
+              value={values[BODY_TEMP]}
               onChange={handleChange}
             />
           </label>
         </div>
         <div className="control">
           <button className="button is-primary">Submit</button>
-          {/* <input type="submit" value="Submit" /> */}
         </div>
         <p>
           This will upload <strong>.ttl</strong>-files to your pod in{" "}

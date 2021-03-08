@@ -46,7 +46,7 @@ export const getAppStorage = async (webId) => {
  * @param folderPath
  * @returns {Promise<boolean>} Returns whether or not there were any errors during the creation process
  */
-export const createInitialFiles = async (webId) => {
+export const createInitialFiles = async (fetch, webId) => {
   try {
     // Get the default app storage location from the user's pod and append our path to it
     const appUrl = await getAppStorage(webId);
@@ -56,7 +56,7 @@ export const createInitialFiles = async (webId) => {
     const settingsFilePath = `${appUrl}settings.ttl`;
 
     // Check if the digiort folder exists, if not then create it. This is where app files, the app inbox, and settings files are created by default
-    const appFolderExists = await resourceExists(appUrl);
+    const appFolderExists = await resourceExists(fetch, appUrl);
     if (!appFolderExists) {
       await createDoc(data, {
         method: "PUT",
@@ -67,15 +67,15 @@ export const createInitialFiles = async (webId) => {
     }
 
     // Check if data file exists, if not then create it. This file holds links to other people's apps
-    const dataFileExists = await resourceExists(dataFilePath);
+    const dataFileExists = await resourceExists(fetch, dataFilePath);
     if (!dataFileExists) {
       await createDocument(dataFilePath);
     }
 
     // Check if the settings file exists, if not then create it. This file is for general settings including the link to the app-specific inbox
-    const settingsFileExists = await resourceExists(settingsFilePath);
+    const settingsFileExists = await resourceExists(fetch, settingsFilePath);
     if (!settingsFileExists) {
-      await createDocument(settingsFilePath);
+      await createDocument(fetch, settingsFilePath);
     }
 
     return true;

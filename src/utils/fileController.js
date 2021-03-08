@@ -1,4 +1,3 @@
-// import auth from "solid-auth-client";
 import ldflex from "@solid/query-ldflex";
 
 export const documentExists = async (fetch, documentUri) =>

@@ -9,6 +9,8 @@ import {
   getTemperatureRdfString,
 } from "../../utils/data_triples";
 import { BODY_TEMP, HEARTRATE } from "../../constants/vitals";
+import FileViewer from "../fileViewer";
+import { useFiles } from "../../hooks/useFiles";
 
 // import { Parser, Store } from "n3";
 // import rdfParser from "rdf-parse";
@@ -18,28 +20,52 @@ const WelcomeComponent = () => {
   const { session } = useSession();
   const { webId } = session.info;
 
+  const files = useFiles(session);
+
+  const createDocument = async (filePath, template_String, overwrite) => {
+    let doc = "";
+    if (files.some((f) => f.url === filePath) && !overwrite) {
+      // get old document
+      doc = await session.fetch(filePath);
+    } else {
+      // get template
+      doc = await fetch(template_String);
+    }
+    return await doc.text();
+  };
+
+  // todo: check existing files and append
   const uploadFiles = async (values) => {
     const appUrl = await getAppStorage(webId);
-
-    for (const [key, value] of Object.entries(values)) {
-      if (value === 0) continue;
+    for (const [key, obj] of Object.entries(values)) {
+      if (obj.value === 0) {
+        console.log(`${key} not changed`);
+        continue;
+      }
       const filePath = `${appUrl + key}.ttl`;
-      var template = "";
+      let doc = "";
       var data = "";
       switch (key) {
         case HEARTRATE:
-          template = await fetch("heartrate_template.ttl", {});
-          data = getHeartrateRdfString(value);
+          doc = await createDocument(
+            filePath,
+            "heartrate_template.ttl",
+            obj.overwrite
+          );
+          data = getHeartrateRdfString(obj.value);
           break;
         case BODY_TEMP:
-          template = await fetch("temperature_template.ttl", {});
-          data = getTemperatureRdfString(value);
+          doc = await createDocument(
+            filePath,
+            "temperature_template.ttl",
+            obj.overwrite
+          );
+          data = getTemperatureRdfString(obj.value);
           break;
         default:
-          console.log("nothing changed");
+          console.log("vital not yet implemented");
       }
-      template = await template.text();
-      const fileContent = template + data;
+      const fileContent = doc + data;
       console.log(fileContent);
 
       const res = await createDocumentWithTurtle(
@@ -81,7 +107,12 @@ const WelcomeComponent = () => {
     <Fragment>
       <NavBar webId={webId} />
       <div className="container">
-        <UserdataForm onSubmit={uploadFiles} />
+        <div className="columns is-centered mt-6">
+          <UserdataForm onSubmit={uploadFiles} />
+        </div>
+        <div className="columns is-centered mt-6">
+          <FileViewer />
+        </div>
       </div>
     </Fragment>
   );

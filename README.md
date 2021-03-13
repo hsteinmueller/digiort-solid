@@ -51,14 +51,23 @@ This also automatically runs `build` before deployment.
 - `WelcomeComponent`:
   - 'main' component with `NavBar`
   - show data form and uploads file to pod on submit
+  - `Overwrite` checkbox:
+    - if checked creates new file with the data from template
+    - if not checked: appends data to existing file (or creates new file)
 - `NavBar`:
   -  Header with {username}
   -  Logout button: removes session from storage and refreshes page
 -  `UserdataFrom`:
    -  render form for data input
    -  takes `onSubmit` function
--  `Fileuploader`:
+-  `FileViewer`:
+   -  shows files in app-folder
+-  `FileUploader`:
    -  **not used**: allows selection of file from local filesystem
+
+## Hooks
+- `useFiles`:
+  - needs a session and uses solid-file-client to query and return files in app-folder
 
 ## other info
 

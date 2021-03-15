@@ -2,6 +2,17 @@ import { useState } from "react";
 import "bulma";
 import { BODY_TEMP, HEARTRATE } from "../../constants/vitals";
 
+const FormOptions = [
+  {
+    name: HEARTRATE,
+    label: "Heartrate [bpm]",
+  },
+  {
+    name: BODY_TEMP,
+    label: "Bodytemperature [°C]",
+  },
+];
+
 export const UserdataForm = ({ onSubmit }) => {
   // https://dev.to/deboragaleano/how-to-handle-multiple-inputs-in-react-55el
   // https://www.telerik.com/blogs/how-to-build-custom-forms-react-hooks
@@ -47,47 +58,29 @@ export const UserdataForm = ({ onSubmit }) => {
 
   return (
     <form className="box" onSubmit={handleSubmit} style={{ width: "15rem" }}>
-      <div className="field">
-        <label className="label">
-          Heartrate [bpm]
-          <input
-            className="input"
-            name={HEARTRATE}
-            type="number"
-            value={values[HEARTRATE].value}
-            onChange={handleChange}
-          />
-        </label>
-        <label className="checkbox">
-          <input
-            id={HEARTRATE}
-            className="checkbox"
-            type="checkbox"
-            onChange={handleCheckbox}
-          />{" "}
-          Overwrite
-        </label>
-      </div>
-      <div className="field">
-        <label className="label">
-          Bodytemperature
-          <input
-            className="input"
-            name={BODY_TEMP}
-            type="number"
-            value={values[BODY_TEMP].value}
-            onChange={handleChange}
-          />
-        </label>
-        <label className="checkbox">
-          <input
-            className="checkbox"
-            type="checkbox"
-            onChange={handleCheckbox}
-          />{" "}
-          Overwrite
-        </label>
-      </div>
+      {FormOptions.map((option, index) => (
+        <div key={index} className="field">
+          <label className="label">
+            {option.label}
+            <input
+              className="input"
+              name={option.name}
+              type="number"
+              value={values[option.name].value}
+              onChange={handleChange}
+            />
+          </label>
+          <label className="checkbox">
+            <input
+              id={option.name}
+              className="checkbox"
+              type="checkbox"
+              onChange={handleCheckbox}
+            />{" "}
+            Overwrite
+          </label>
+        </div>
+      ))}
       <div className="control">
         <button className="button is-primary">Submit</button>
       </div>
